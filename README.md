@@ -7,21 +7,21 @@ This is a library for the Hobbytronics USB Host Controller board pre-programmed 
    Steve Smith 2017, based on the Hobbytronics ps4_hex_tank example.
 
 ## Connections:
-   5V on host controller --> 5V on Arduino
-   0V on host controller --> GND on Arduino
-   SDA on host controller --> pin A4 (SDA) on normal Arduino (SDA1 on Arduino Due)
-   SCL on host controller --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
-   non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
+   * 5V on host controller --> 5V on Arduino
+   * 0V on host controller --> GND on Arduino
+   * SDA on host controller --> pin A4 (SDA) on normal Arduino (SDA1 on Arduino Due)
+   * SCL on host controller --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
+   * non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
 
    NB: in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
    This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
 
 ## Temporary connections to turn off Serial mode on host controller:
-   5V on host controller --> 5V on Arduino
-   0V on host controller --> GND on Arduino
-   TX on host controller --> TX-> on Arduino
-   RX on host controller --> ->RX on Arduino
-   RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller)
+   * 5V on host controller --> 5V on Arduino
+   * 0V on host controller --> GND on Arduino
+   * TX on host controller --> TX-> on Arduino
+   * RX on host controller --> ->RX on Arduino
+   * RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller)
 
 ## Instructions to turn off Serial mode on the host controller:
    1. Remove the bluetooth dongle from the host controller
