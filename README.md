@@ -7,13 +7,13 @@ This is a library for the Hobbytronics USB Host Controller board pre-programmed 
 **SEMU Consulting 2017**, based on the Hobbytronics ps4_hex_tank example.
 
 ## Connections:
-   * 5V on host controller --> 5V on Arduino
-   * 0V on host controller --> GND on Arduino
-   * SDA on host controller --> pin A4 (SDA) on normal Arduino (SDA1 on Arduino Due)
-   * SCL on host controller --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
-   * non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
-   * [compatible bluetooth controller](http://www.hobbytronics.co.uk/bluetooth-4-dongle) inserted into USB connection on host controller board
-   * To pair the PS4 Dualshock controller, press and release the push switch which connects the SS and 0V pins on the host controller. The blue LED on the board should flash faster. Then press the PS4 and Share buttons on the Dualshock controller simultaneously. The LED on the Dualshock should flash for a few seconds. Once paired, the Dualshock rumbles briefly and the LED turns to solid blue. If the Dualshock fails to pair, try pressing the reset button on the board and repeating the process.
+   * 5V on board --> 5V on Arduino
+   * 0V on board --> GND on Arduino
+   * SDA on board --> pin A4 (SDA) on normal Arduino (SDA1 on Arduino Due)
+   * SCL on board --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
+   * non-latching SPST push switch between 0V and SS pin on board to enable bluetooth pairing mode (blue LED flashes faster)
+   * [compatible bluetooth controller](http://www.hobbytronics.co.uk/bluetooth-4-dongle) inserted into USB connection on board
+   * To pair the PS4 Dualshock controller, press and release the push switch which connects the SS and 0V pins on the board. The blue LED on the board should start to flash faster. Then press the PS4 and Share buttons on the Dualshock controller simultaneously. The LED on the Dualshock should flash for a few seconds. Once paired, the Dualshock rumbles briefly and its LED turns to solid blue. If the Dualshock fails to pair, try pressing the reset button on the board and repeating the process.
 
 The default I2C address of the board is 0x29 (decimal 41). This can be amended using the UART configuration instructions below.
 
