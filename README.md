@@ -13,21 +13,22 @@ This is a library for the Hobbytronics USB Host Controller board pre-programmed 
    * SCL on board --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
    * non-latching SPST push switch between 0V and SS pin on board to enable bluetooth pairing mode (blue LED flashes faster)
    * [compatible bluetooth controller](http://www.hobbytronics.co.uk/bluetooth-4-dongle) inserted into USB connection on board
-   * To pair the PS4 Dualshock controller, press and release the push switch which connects the SS and 0V pins on the board. The blue LED on the board should start to flash faster. Then press the PS4 and Share buttons on the Dualshock controller simultaneously. The LED on the Dualshock should flash for a few seconds. Once paired, the Dualshock rumbles briefly and its LED turns to solid blue. If the Dualshock fails to pair, try pressing the reset button on the board and repeating the process.
+   * In some installations (e.g. when stacking multiple I2C boards), it may be necessary to add 4.7k pull-up resistors between the SCL and SDA lines and VCC **but check your specific microcontroller and I2C board datasheets before doing this. Inappropriate use of pull-up resistors may damage the board and/or microcontroller**.
+
+To pair the PS4 Dualshock controller, press and release the push switch which connects the SS and 0V pins on the board. The blue LED on the board should start to flash faster. Then press the PS4 and Share buttons on the Dualshock controller simultaneously. The LED on the Dualshock should flash for a few seconds. Once paired, the Dualshock rumbles briefly and its LED turns to solid blue. If the Dualshock fails to pair, try pressing the reset button on the board and repeating the process.
 
 The default I2C address of the board is 0x29 (decimal 41). This can be amended using the UART configuration instructions below.
 
-**NB:** in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
-This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
+**NB:** in order for the host controller board to work in I2C mode, it is necessary to turn off SERIAL mode. This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
 
 ## Temporary connections for UART configuration:
-   * 5V on host controller --> 5V on Arduino
-   * 0V on host controller --> GND on Arduino
-   * TX on host controller --> TX-> on Arduino
-   * RX on host controller --> ->RX on Arduino
-   * RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller)
+   * 5V on board --> 5V on Arduino
+   * 0V on board --> GND on Arduino
+   * TX on board --> TX-> on Arduino
+   * RX on board --> ->RX on Arduino
+   * RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller board)
 
-## Instructions for UART configuration e.g. to turn off Serial mode or amend I2C address on the host controller:
+## Instructions for UART configuration e.g. to turn off Serial mode or amend the I2C address on the host controller board:
    1. Remove the bluetooth dongle from the host controller
    2. Open up the Serial Monitor in the Arduino IDE and set the line mode to "Carriage return" and the baud rate to whatever rate the Arduino was using (recommend 115200).
    3. Enter the command HELP in the command line and click Send. 
