@@ -4,7 +4,7 @@ PS4 Dualshock I2C USB Host Controller library for Arduino microcontrollers.
 This is a library for the Hobbytronics USB Host Controller board pre-programmed for the PS4 Dualshock Controller
    http://www.hobbytronics.co.uk/usb-host/ps3-ps4-controller-bluetooth
    
-Steve Smith 2017, based on the Hobbytronics ps4_hex_tank example.
+SEMU Consulting 2017, based on the Hobbytronics ps4_hex_tank example.
 
 ## Connections:
    * 5V on host controller --> 5V on Arduino
