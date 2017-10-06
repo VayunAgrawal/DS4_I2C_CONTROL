@@ -1,7 +1,8 @@
+
 # DS4_I2C_CONTROL
 PS4 Dualshock I2C USB Host Controller library for Arduino microcontrollers.
 
-This is a library for the Hobbytronics USB Host Controller board pre-programmed for the PS4 Dualshock Controller
+This is a library for the Hobbytronics USB Host Controller board pre-programmed for the bluetooth PS4 Dualshock Controller
    http://www.hobbytronics.co.uk/usb-host/ps3-ps4-controller-bluetooth
    
 SEMU Consulting 2017, based on the Hobbytronics ps4_hex_tank example.
@@ -12,18 +13,21 @@ SEMU Consulting 2017, based on the Hobbytronics ps4_hex_tank example.
    * SDA on host controller --> pin A4 (SDA) on normal Arduino (SDA1 on Arduino Due)
    * SCL on host controller --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
    * non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
+   * [compatible bluetooth controller]http://www.hobbytronics.co.uk/bluetooth-4-dongle inserted into USB connection on host controller board
+
+The default I2C address of the board is 0x29 (decimal 41). This can be amended using the UART configuration instructions below.
 
 NB: in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
 This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
 
-## Temporary connections to turn off Serial mode on host controller:
+## Temporary connections for UART configuration:
    * 5V on host controller --> 5V on Arduino
    * 0V on host controller --> GND on Arduino
    * TX on host controller --> TX-> on Arduino
    * RX on host controller --> ->RX on Arduino
    * RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller)
 
-## Instructions to turn off Serial mode on the host controller:
+## Instructions for UART configuraiton e.g. to turn off Serial mode on the host controller:
    1. Remove the bluetooth dongle from the host controller
    2. Open up the Serial Monitor in the Arduino IDE and set the line mode to "Carriage return" and the baud rate to whatever rate the Arduino was using (recommend 115200).
    3. Enter the command HELP in the command line and click Send. 
