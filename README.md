@@ -1,10 +1,10 @@
 # DS4_I2C_CONTROL
-PS4 Dualshock Bluetooth Controller I2C UB Host Controller library for Arduino microcontrollers
+PS4 Dualshock I2C USB Host Controller library for Arduino microcontrollers.
 
 This is a library for the Hobbytronics USB Host Controller board pre-programmed for the PS4 Dualshock Controller
    http://www.hobbytronics.co.uk/usb-host/ps3-ps4-controller-bluetooth
    
-   Steve Smith 2017, based on the Hobbytronics ps4_hex_tank example.
+Steve Smith 2017, based on the Hobbytronics ps4_hex_tank example.
 
 ## Connections:
    * 5V on host controller --> 5V on Arduino
@@ -13,8 +13,8 @@ This is a library for the Hobbytronics USB Host Controller board pre-programmed 
    * SCL on host controller --> pin A5 (SCL) on normal Arduino (SCL1 on Arduino Due)
    * non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
 
-   NB: in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
-   This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
+NB: in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
+This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
 
 ## Temporary connections to turn off Serial mode on host controller:
    * 5V on host controller --> 5V on Arduino
