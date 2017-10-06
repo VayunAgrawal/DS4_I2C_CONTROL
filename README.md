@@ -31,11 +31,12 @@ The default I2C address of the board is 0x29 (decimal 41). This can be amended u
 ## Instructions for UART configuration e.g. to turn off Serial mode or amend the I2C address on the host controller board:
    1. Remove the bluetooth dongle from the host controller
    2. Open up the Serial Monitor in the Arduino IDE and set the line mode to "Carriage return" and the baud rate to whatever rate the Arduino was using (recommend 115200).
-   3. Enter the command HELP in the command line and click Send. 
-   4. You should see a report of the current settings of the host controller board (if HELP doesn't work, try ? instead) - by default, Serial mode is ON.
+   3. Enter the command HELP in the command line and click Send (if HELP doesn't work, try ? instead). 
+   4. You should see a report of the current settings of the host controller board. By default, Serial mode is ON.
    5. Enter the command SERIAL OFF and click Send.
-   6. Then type HELP or ? again and you should see that the SERIAL mode is now OFF.
-   7. Now turn everything off, reinsert the bluetooth dongle into the host controller and reconnect as per the normal connections shown above.
+   6. Then type HELP (or ?) again and you should see that SERIAL mode is now OFF.
+   7. If necessary, the default I2C address can be changed in a similar fashion.
+   8. Now turn everything off, reinsert the bluetooth dongle into the host controller and reconnect as per the normal connections shown above.
 
 <!-- START COMPATIBILITY TABLE -->
 
