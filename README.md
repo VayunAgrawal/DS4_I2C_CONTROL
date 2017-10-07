@@ -1,4 +1,3 @@
-
 # DS4_I2C_CONTROL
 PS4 Dualshock I2C USB Host Controller library for Arduino microcontrollers.
 
@@ -32,7 +31,10 @@ The default I2C address of the board is 0x29 (decimal 41). This can be amended u
    * RX on board --> ->RX on Arduino
    * RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller board)
 
-## Instructions for UART configuration e.g. to turn off Serial mode or amend the I2C address on the host controller board:
+## Instructions for UART configuration via Arduino 
+
+**e.g. to turn off Serial mode or amend the I2C address on the host controller board:**
+
    1. Remove the bluetooth dongle from the host controller
    2. Open up the Serial Monitor in the Arduino IDE and set the line mode to "Carriage return" and the baud rate to whatever rate the Arduino was using (recommend 115200).
    3. Enter the command HELP in the command line and click Send (if HELP doesn't work, try ? instead). 
