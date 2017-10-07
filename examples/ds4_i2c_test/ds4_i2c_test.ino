@@ -12,16 +12,17 @@
    non-latching SPST push switch between 0V and SS pin on host controller to enable bluetooth pairing mode (blue LED flashes faster)
 
    NB: in order for the host controller to work in I2C mode, it is necessary to turn off SERIAL mode on the USB host controller board.
-   This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
+   This needs to be done via a direct UART (Rx/Tx) connection to the board either via an FTDI cable or breakout board, or directly 
+   via the Arduino, which can be set up as follows:
 
-   Temporary connections to turn off Serial mode on host controller:
+   Temporary connections to turn off Serial mode on host controller via Arduino (if not using FDTI cable or breakout board):
    5V on host controller --> 5V on Arduino
    0V on host controller --> GND on Arduino
    TX on host controller --> TX-> on Arduino
    RX on host controller --> ->RX on Arduino
    RESET pin on Arduino --> GND on Arduino (this is to bypass the Arduino's internal UART chip so we're talking directly to the host controller)
 
-   Instructions to turn off Serial mode on the host controller:
+   Instructions to turn off Serial mode on the host controller via Arduino:
    - Remove the bluetooth dongle from the host controller
    - Open up the Serial Monitor in the Arduino IDE and set the line mode to "Carriage return" and the baud rate to whatever rate the Arduino was using (recommend 115200).
    - Enter the command HELP in the command line and click Send. 
@@ -40,6 +41,7 @@ uint8_t read_interval = 20;
 DS4_I2C_CONTROL ds4 = DS4_I2C_CONTROL(0x29);
 
 void setup()  {
+  while( !Serial ); // sometimes necessary with Teensy 3 or Arduino Micro
   Serial.begin(baudRate);
   time = 0;
   ds4.begin();
