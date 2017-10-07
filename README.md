@@ -1,3 +1,4 @@
+
 # DS4_I2C_CONTROL
 PS4 Dualshock I2C USB Host Controller library for Arduino microcontrollers.
 
@@ -46,20 +47,21 @@ The default I2C address of the board is 0x29 (decimal 41). This can be amended u
 
 <!-- START COMPATIBILITY TABLE -->
 
-## Compatibility
+## Compatibility:
 
 MCU                | Tested Works | Doesn't Work | Not Tested  | Notes
 ------------------ | :----------: | :----------: | :---------: | -----
 Atmega328 @ 16MHz  |      X       |             |            | 
-Atmega328 @ 12MHz  |      X       |             |            | 
+Atmega328 @ 12MHz  |              |             |     X      | 
 Atmega32u4 @ 16MHz |      X       |             |            | 
-Atmega32u4 @ 8MHz  |      X       |             |            | 
-ESP8266            |      X       |             |            | 
+Atmega32u4 @ 8MHz  |              |             |     X      | 
+ESP8266            |              |             |     X      | 
 Atmega2560 @ 16MHz |      X       |             |            | 
 ATSAM3X8E          |      X       |             |            | Use SDA1/SCL1
-ATSAM21D           |      X       |             |            | 
-ATtiny85 @ 16MHz   |      X       |             |            | 
-ATtiny85 @ 8MHz    |      X       |             |            | 
+ATSAM21D           |              |             |     X      | 
+ATtiny85 @ 16MHz   |      X       |             |     X      | 
+ATtiny85 @ 8MHz    |      X       |             |     X      | 
+MK20DX256VLH7 @ 72MHz |      X       |             |            |
 Intel Curie @ 32MHz |             |             |     X       | 
 STM32F2            |             |             |     X       | 
 
@@ -73,5 +75,6 @@ STM32F2            |             |             |     X       |
   * ATSAM21D : Arduino Zero, M0 Pro
   * ATtiny85 @ 16MHz : Adafruit Trinket 5V
   * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V
+  * MK20DX256VLH7 @ 72MHz : Teensy 3.x (not overclocked)
 
 <!-- END COMPATIBILITY TABLE -->
