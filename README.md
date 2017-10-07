@@ -19,9 +19,9 @@ To pair the PS4 Dualshock controller, press and release the push switch which co
 
 The default I2C address of the board is 0x29 (decimal 41). This can be amended using the UART configuration instructions below.
 
-**NB:** in order for the host controller board to work in I2C mode, it is necessary to turn off SERIAL mode. This needs to be done via a direct UART (Rx/Tx) connection to the board via the Arduino, which can be set up as follows:
+**NB:** in order for the host controller board to work in I2C mode, it is necessary to turn off SERIAL mode. This needs to be done via an  direct UART (Rx/Tx) connection to the board, either using an [FDTI cable or breakout board](http://www.hobbytronics.co.uk/ftdi-basic), or via the Arduino itself.
 
-## Temporary connections for UART configuration:
+## Temporary connections for UART configuration via Arduino (only necessary if not using an FDTI cable or breakout board):
    * 5V on board --> 5V on Arduino
    * 0V on board --> GND on Arduino
    * TX on board --> TX-> on Arduino
