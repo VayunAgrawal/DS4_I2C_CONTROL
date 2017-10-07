@@ -29,14 +29,14 @@ void DS4_I2C_CONTROL::get_ps4()
   // We only want single byte values (0 to 255)
 
   unsigned char i2c_index=0; 
-  Wire.beginTransmission(_i2caddr);  // transmit to device
-  Wire.write(0);                        // Start receiving data from register 0
-  Wire.endTransmission();               // end transmission
+  WIRE.beginTransmission(_i2caddr);  // transmit to device
+  WIRE.write(0);                        // Start receiving data from register 0
+  WIRE.endTransmission();               // end transmission
   
-  Wire.requestFrom(_i2caddr, _i2clength);    // request PS4_I2C_LEN bytes from PS4 
-  while(Wire.available())
+  WIRE.requestFrom(_i2caddr, _i2clength);    // request PS4_I2C_LEN bytes from PS4 
+  while(WIRE.available())
   { 
-    ps4_ic2[i2c_index++] = Wire.read();          // receive a byte and increment index     
+    ps4_ic2[i2c_index++] = WIRE.read();          // receive a byte and increment index     
   }  
 
   decode_ps4();                         // Decode PS4 data
@@ -45,6 +45,8 @@ void DS4_I2C_CONTROL::get_ps4()
 // Decode PS4 Data and move to struct
 void DS4_I2C_CONTROL::decode_ps4(void){
 
+   ps4_ok = false;
+  
    l_joystick_x = ps4_ic2[0];
    l_joystick_y = ps4_ic2[1];
    r_joystick_x = ps4_ic2[2];
